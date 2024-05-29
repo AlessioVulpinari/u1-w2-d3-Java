@@ -1,33 +1,19 @@
 package entities;
 
-import java.time.LocalDate;
-import java.util.List;
 import java.util.Random;
 
 public class Product {
     private long id;
-    private String status;
-    private LocalDate orderDate;
-    private LocalDate deliveryDate;
-    private List<Product> products;
-    private Customer customer;
+    private String name;
+    private String category;
+    private double price;
 
-    public Product(String status, LocalDate orderDate, LocalDate deliveryDate, List<Product> products, Customer customer) {
-        this.setStatus(status);
-        this.setOrderDate(orderDate);
-        this.setDeliveryDate(deliveryDate);
-        this.setProducts(products);
-        this.setCustomer(customer);
+    public Product(String name, String category, double price) {
+        this.setName(name);
+        this.setCategory(category);
+        this.setPrice(price);
         Random random = new Random();
         this.setId(random.nextLong(0, 1000000));
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public long getId() {
@@ -38,35 +24,37 @@ public class Product {
         this.id = id;
     }
 
-    public LocalDate getOrderDate() {
-        return orderDate;
+    public String getName() {
+        return name;
     }
 
-    public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public LocalDate getDeliveryDate() {
-        return deliveryDate;
+    public String getCategory() {
+        return category;
     }
 
-    public void setDeliveryDate(LocalDate deliveryDate) {
-        this.deliveryDate = deliveryDate;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public double getPrice() {
+        return price;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
